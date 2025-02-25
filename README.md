@@ -171,18 +171,99 @@ print("Predictions:", model.predict(X_test))
 
 ---
 
-# 🔟 Building a Complete ML Project
-1. Load Data 📥  
-2. Data Preprocessing 🔧  
-3. Train/Test Split 🧪  
-4. Train Model 🚀  
-5. Evaluate Model 📊  
-6. Deploy Model 🌎 (Tomorrow’s Topic!)  
+### **🔹 2. Logistic Regression (For Classification)**
+
+```python
+from sklearn.linear_model import LogisticRegression  
+X = df[['sepal_length', 'sepal_width', 'petal_length', 'petal_width']]  
+y = df['species']  
+
+model = LogisticRegression()
+model.fit(X, y)  
+
+print("Predictions:", model.predict(X))
+```
+
+✅ **Use Cases:** Spam Detection, Disease Prediction
 
 ---
 
-# ✅ Next Steps: Start AI Deployment Tomorrow!
-Now that you have completed the **ML basics**, we can move to **AI model deployment on the cloud (AWS, GCP, Azure) tomorrow**.
+### **🔹 3. Decision Trees**
 
-Let me know if you need **further clarifications** or **hands-on exercises**! 🚀
+```python
+from sklearn.tree import DecisionTreeClassifier  
+
+model = DecisionTreeClassifier()
+model.fit(X, y)  
+
+print("Predictions:", model.predict(X))
+```
+
+✅ **Use Cases:** Credit Risk Analysis, Customer Segmentation
+
+---
+
+## **7️⃣ Unsupervised Learning Algorithms**
+
+### **🔹 1. K-Means Clustering**
+
+```python
+from sklearn.cluster import KMeans  
+
+model = KMeans(n_clusters=3)
+df['cluster'] = model.fit_predict(X)  
+
+print(df.head())
+```
+
+✅ **Use Cases:** Customer Segmentation, Market Analysis
+
+---
+
+## **8️⃣ Model Evaluation Metrics**
+
+### **🔹 Regression Metrics**
+
+- **Mean Squared Error (MSE)**
+- **R² Score**
+
+### **🔹 Classification Metrics**
+
+```python
+from sklearn.metrics import accuracy_score, classification_report  
+
+y_pred = model.predict(X_test)
+print("Accuracy:", accuracy_score(y_test, y_pred))
+print(classification_report(y_test, y_pred))
+```
+
+---
+
+## **9️⃣ Hyperparameter Tuning**
+
+Fine-tuning models for better accuracy:
+
+```python
+from sklearn.model_selection import GridSearchCV  
+
+params = {'n_estimators': [10, 50, 100]}
+grid = GridSearchCV(RandomForestClassifier(), param_grid=params)
+grid.fit(X_train, y_train)  
+
+print(grid.best_params_)
+```
+
+---
+
+## **🔟 Building a Complete ML Project**
+
+1. Load Data 📥
+2. Data Preprocessing 🔧
+3. Train/Test Split 🧪
+4. Train Model 🚀
+5. Evaluate Model 📊
+6. Deploy Model 🌎 (Tomorrow’s Topic!)
+
+---
+
 
